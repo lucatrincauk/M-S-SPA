@@ -1,0 +1,45 @@
+.navbar {
+	border-bottom: 1px solid #ccc;
+	background: rgb(243, 243, 243);
+}
+.navbar-toggle .icon-bar {
+	background-color: #428bca
+}
+.row > li {
+	margin-bottom: 2em;
+}
+.swatchBox {
+	margin: 1em 0;
+}
+.swatchItem {
+	display: block;
+	width: 2em;
+	height: 2em;
+	border: 1px solid #ccc;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	vertical-align: top;
+	border: 2px solid transparent;
+}
+.swatchItem.selected {
+	border-color: black;
+}
+.swatchItem.red {
+	background: red;
+}
+.swatchItem.blue {
+	background: blue;
+}
+.swatchItem.yellow {
+	background: yellow;
+}
+.swatchItem.green {
+	background: green;
+}
+@media (max-width: 767px) {
+	.col-xs-12 {
+		text-align: center;
+	}
+	
+}

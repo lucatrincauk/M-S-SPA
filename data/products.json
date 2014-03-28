@@ -1,0 +1,76 @@
+[
+	{
+		"id": "chinos",
+		"url": "chinos",
+		"name": "Burgundy Chinos",
+		"category": "Men",
+		"price": 19.99,
+		"imagepath": "chinos.jpg",
+		"colour": [
+			"red",
+			"blue"
+		]
+	},
+	{
+		"id": "coat",
+		"url": "coat",
+		"name": "Peacock Coat",
+		"category": "Men",
+		"price": 89.99,
+		"imagepath": "coat.jpg",
+		"colour": [
+			"green",
+			"blue"
+		]
+	},
+	{
+		"id": "jeans",
+		"url": "jeans",
+		"name": "Bootcut Jeans",
+		"category": "Women",
+		"price": 29.99,
+		"imagepath": "jeans.jpg",
+		"colour": [
+			"red",
+			"blue",
+			"yellow",
+			"green"
+		]		
+	},
+	{
+		"id": "shirt",
+		"url": "shirt",
+		"name": "Striped Shirt",
+		"category": "Men",
+		"price": 21.99,
+		"imagepath": "shirt.jpg",
+		"colour": [
+			"red",
+			"blue"
+		]		
+	},
+	{
+		"id": "trousers",
+		"url": "trousers",
+		"name": "Formal Trousers",
+		"category": "Men",
+		"price": 39.99,
+		"imagepath": "trousers.jpg",
+		"colour": [
+			"green"
+		]		
+	},
+	{
+		"id": "jumper",
+		"url": "jumper",
+		"name": "Violet Jumper",
+		"category": "Women",
+		"price": 35.99,
+		"imagepath": "jumper.jpg",
+		"colour": [
+			"red",
+			"blue",
+			"green"
+		]		
+	}
+]
