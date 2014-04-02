@@ -5,6 +5,8 @@ var Product = Backbone.Model.extend({
 		category: 'Cat',
 		imagepath: 'default.gif',
 		name: 'Title',
-		price: 0
+		price: 0,
+		colour: "blank",
+		size: "blank"
 	}
 });

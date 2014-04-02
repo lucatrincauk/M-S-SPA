@@ -10,6 +10,9 @@ var ProductPdpView = Backbone.View.extend({
 		'<div class="swatchBox">{{#each colour}}' +
 		'<div class="swatchItem {{this}}" data-colour="{{this}}"></div> ' +
 		'{{/each}}</div>' +
+		'<div class="sizeBox">{{#each size}}' +
+		'<div class="sizeItem" data-size="{{this}}">{{this}}</div>' +
+		'{{/each}}</div>' +
 		'<button type="button" class="btn btn-success">Add to basket</button>' +
 		'</div></div>'
 	),
@@ -33,7 +36,16 @@ var ProductPdpView = Backbone.View.extend({
 		this.model.set({
 			selectedColour: $(that).data('colour')
 		});
-		$('.swatchItem').removeClass('selected');
+		$('.swatchBox .swatchItem').removeClass('selected');
+		$(that).addClass('selected');
+		//console.log(this.model);
+	},
+	selectSize: function (e) {
+		that = e.target;
+		this.model.set({
+			selectedSize: $(that).data('size')
+		});
+		$('.sizeBox .sizeItem').removeClass('selected');
 		$(that).addClass('selected');
 		//console.log(this.model);
 	},
@@ -44,7 +56,8 @@ var ProductPdpView = Backbone.View.extend({
 		this.$el.html(this.template(this.model.attributes));
 		this.delegateEvents({
 			'click .btn-success': 'addToBasket',
-			'click .swatchItem': 'selectSwatch'
+			'click .swatchItem': 'selectSwatch',
+			'click .sizeItem': 'selectSize'
 		});
 		return this;
 	}

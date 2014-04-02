@@ -9,6 +9,10 @@
 		"colour": [
 			"red",
 			"blue"
+		],
+		"size": [
+			"S",
+			"M"
 		]
 	},
 	{
@@ -21,6 +25,11 @@
 		"colour": [
 			"green",
 			"blue"
+		],
+		"size": [
+			"M",
+			"L",
+			"XL"
 		]
 	},
 	{
@@ -35,6 +44,10 @@
 			"blue",
 			"yellow",
 			"green"
+		],
+		"size": [
+			"XL",
+			"XXL"
 		]		
 	},
 	{
@@ -47,6 +60,9 @@
 		"colour": [
 			"red",
 			"blue"
+		],
+		"size": [
+			"S"
 		]		
 	},
 	{
@@ -58,6 +74,10 @@
 		"imagepath": "trousers.jpg",
 		"colour": [
 			"green"
+		],
+		"size": [
+			"S",
+			"M"
 		]		
 	},
 	{
@@ -71,6 +91,12 @@
 			"red",
 			"blue",
 			"green"
+		],
+		"size": [
+			"S",
+			"M",
+			"L",
+			"XL"
 		]		
 	}
 ]

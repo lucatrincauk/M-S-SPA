@@ -30,7 +30,7 @@ var App = Backbone.Router.extend({
 
 	productPlp: function () {
 		$('#app').html(this.productPlpView.render().el);
-		$('.dropdown-menu').html(this.miniBasketView.render().el);
+		//$('.dropdown-menu').html(this.miniBasketView.render().el);
 	},
 
 	/* categories: function (category) {

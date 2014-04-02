@@ -3,14 +3,7 @@ var PaymentView = Backbone.View.extend({
 	template: Handlebars.compile(
 		'<h1>Payment</h1>' +
 		'<p>Payment options on this page</p>' +
-		'<ul>' + 
-		'{{#each models}}<li>' +		
-		'<a href="#/products/{{attributes.url}}">' +
-		'{{attributes.name}}</a> ' +
-		'<span class="label label-info">' +
-		'{{attributes.price}}&pound;</span> ' +
-		'</li>{{/each}}' +
-		'</ul>' +
+		'<form><label for="paymentCard">Card Number</label> <input name="payment" type="text" id="paymentCard"/><br><label for="paymentName">Cardholder Name</label> <input name="payment" type="text" id="paymentName"/></form>' +
 		'<a href="#/confirmation" class="btn btn-success">confirmation</a>'
 
 	),

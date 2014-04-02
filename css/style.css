@@ -8,22 +8,32 @@
 .row > li {
 	margin-bottom: 2em;
 }
-.swatchBox {
+.swatchBox, .sizeBox {
 	margin: 1em 0;
 }
-.swatchItem {
+.swatchItem, .sizeItem {
 	display: block;
 	width: 2em;
 	height: 2em;
-	border: 1px solid #ccc;
 	display: inline-block;
-	*display: inline;
-	*zoom: 1;
 	vertical-align: top;
 	border: 2px solid transparent;
 }
+.sizeItem {
+	border: 1px solid #ccc;
+	text-align: center;
+	line-height: 2em;
+	margin: .1em;
+}
+.sizeItem:first-child {
+	margin-left: 0;
+}
 .swatchItem.selected {
 	border-color: black;
+	opacity: .5;
+}
+.sizeItem.selected {
+	background: #bbb;
 }
 .swatchItem.red {
 	background: red;
@@ -37,6 +47,7 @@
 .swatchItem.green {
 	background: green;
 }
+
 @media (max-width: 767px) {
 	.col-xs-12 {
 		text-align: center;
