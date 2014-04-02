@@ -1,47 +1,46 @@
-var AppRouter = Backbone.Router.extend({
+var App = Backbone.Router.extend({
 	routes: {
-		"": "list",
-		"products/:product": "productPDP",
+		"": "productPlp",
+		"products/:id": "productPdp",
 		"basket": "basket",
 		"categories/:category": "categories",
 		"checkout": "checkout",
 		"payment": "payment",
 		"confirmation": "confirmation"
 
-	},
+	}, 
 
 	initialize: function  () {
-		this.productList = new ProductList();
-		this.productList.fetch();
-		this.basketItems = new ProductList();
+		this.products = new Products();
+		this.products.fetch();
+		this.basketItems = new Products();
 
 		this.product = new Product();
-		this.productPDP = new ProductDetails(
-			{
-				model: this.product
-			}
-		);
+
+		this.productPdpView = new ProductPdpView({model: this.product});
 		
-		this.menuView = new MenuView({collection: this.productList});
+		this.productPlpView = new ProductPlpView({collection: this.products});
 		this.basketView = new BasketView({collection: this.basketItems});		
 		this.checkoutView = new CheckoutView({collection: this.basketItems});
 		this.paymentView = new PaymentView({collection: this.basketItems});
+		this.miniBasketView = new MiniBasketView({collection: this.basketItems});
 		this.confirmationView = new ConfirmationView({collection: this.basketItems});
-		this.categoryView = new CategoryView({collection: this.productList});
+		this.categoryView = new CategoryView({collection: this.products});
 	},
 
-	list: function () {
-		$('#app').html(this.menuView.render().el);
+	productPlp: function () {
+		$('#app').html(this.productPlpView.render().el);
+		$('.dropdown-menu').html(this.miniBasketView.render().el);
 	},
 
-	categories: function (category) {
+	/* categories: function (category) {
 		this.categoryView.options.category = category;
 		$('#app').html(this.categoryView.render().el);
-	},
+	},*/
 
-	productPDP: function (product) {
-		this.productPDP.model = this.productList.get(product);
-		$('#app').html(this.productPDP.render().el);
+	productPdp: function (id) {
+		this.productPdpView.model = this.products.get(id);
+		$('#app').html(this.productPdpView.render().el);
 	},
 	basket: function () {
 		if(!this.basketItems.length){
@@ -62,7 +61,7 @@ var AppRouter = Backbone.Router.extend({
 
 });
 
-var app = new AppRouter();
+var app = new App();
 
 $(function() {
 	Backbone.history.start();

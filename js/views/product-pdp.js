@@ -1,4 +1,4 @@
-var ProductDetails = Backbone.View.extend({
+var ProductPdpView = Backbone.View.extend({
 	template: Handlebars.compile(
 		'<div class="row">' +
 		'<div class="col-xs-12 col-sm-6 col-md-4">' +
@@ -17,6 +17,7 @@ var ProductDetails = Backbone.View.extend({
 	initialize: function  () {
 		this.listenTo(this.model, "change", this.render);
 		var that;
+		this.model.bind("change", this.render);
 	},
 	addToBasket: function (e) {
 		that = this.el;
@@ -38,6 +39,8 @@ var ProductDetails = Backbone.View.extend({
 	},
 	
 	render: function () {
+				//console.log(this);
+
 		this.$el.html(this.template(this.model.attributes));
 		this.delegateEvents({
 			'click .btn-success': 'addToBasket',

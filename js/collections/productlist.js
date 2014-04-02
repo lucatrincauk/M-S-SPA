@@ -1,5 +1,4 @@
-var ProductList = Backbone.Collection.extend({
-	comparator: 'category',
+var Products = Backbone.Collection.extend({
 	model: Product,
 	url: 'data/products.json'
 });

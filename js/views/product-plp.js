@@ -1,4 +1,4 @@
-var MenuView = Backbone.View.extend({
+var ProductPlpView = Backbone.View.extend({
 
 	template: Handlebars.compile(
 		'<ul class="row">' + 
