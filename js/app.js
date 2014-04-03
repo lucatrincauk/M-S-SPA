@@ -30,39 +30,36 @@ App.Router = Backbone.Router.extend({
 		paymentView = new App.Views.PaymentView({collection: basketItems});
 		miniBasketView = new App.Views.MiniBasketView({collection: basketItems});
 		confirmationView = new App.Views.ConfirmationView({collection: basketItems});
-		// categoryView = new App.Views.CategoryView({collection: products});
 		return this;
 	},
 
 	productPlp: function () {
-		$('#app').html(productPlpView.render().el);
-		//$('.dropdown-menu').html(miniBasketView.render().el);
+		$('#core').html(productPlpView.render().el);
+		//$('#basket').html(miniBasketView.render().el);
+		$('#basket').html(basketView.render().el);
 	},
-
-	/* categories: function (category) {
-		categoryView.options.category = category;
-		$('#app').html(categoryView.render().el);
-	},*/
 
 	productPdp: function (id) {
 		productPdpView = new App.Views.ProductPdpView({model: products.get(id)});
-		$('#app').html(productPdpView.render().el);
+		$('#core').html(productPdpView.render().el);
+		$('#basket').html(basketView.render().el);
 	},
 	basket: function () {
 		if(!basketItems.length){
-			$('#app').html('Basket empty');
+			$('#core').html('Basket empty');
+			$('#basket').html('');
 		} else {
-			$('#app').html(basketView.render().el);
+			$('#core').html(basketView.render().el);
 		}
 	},
 	checkout: function () {
-		$('#app').html(checkoutView.render().el);		
+		$('#core').html(checkoutView.render().el);		
 	},
 	payment: function () {
-		$('#app').html(paymentView.render().el);		
+		$('#core').html(paymentView.render().el);		
 	},
 	confirmation: function () {
-		$('#app').html(confirmationView.render().el);		
+		$('#core').html(confirmationView.render().el);		
 	}
 });
 new App.Router;

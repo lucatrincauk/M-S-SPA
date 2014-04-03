@@ -23,7 +23,6 @@ App.Views.ProductPdpView = Backbone.View.extend({
 	addToBasket: function (e) {
 		that = this.el;
 		basketItems.add(this.model, 1);
-		alert('Added to basket');
 	},
 	selectSwatch: function (e) {
 		that = e.target;

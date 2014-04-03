@@ -47,6 +47,7 @@
 .swatchItem.green {
 	background: green;
 }
+#core img {width:100%;}
 
 @media (max-width: 767px) {
 	.col-xs-12 {

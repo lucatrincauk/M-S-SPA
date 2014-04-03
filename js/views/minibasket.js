@@ -10,9 +10,10 @@ App.Views.MiniBasketView = Backbone.View.extend({
 
 
 	tagName: 'ul',
-className: 'dropdown-menu',
+	className: 'dropdown-menu',
 	
 	render: function () {
+		console.log('rendering basket');
 		this.$el.html(this.template(this.collection));
 		return this;
 	}

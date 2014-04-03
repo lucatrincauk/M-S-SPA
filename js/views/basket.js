@@ -15,10 +15,18 @@ App.Views.BasketView = Backbone.View.extend({
 		'<a href="#/checkout" class="btn btn-success">Checkout</a>'
 	),
 	className: 'basket',
+	initialize: function  () {
+		this.listenTo(this.collection, "add", this.render);
+		this.listenTo(this.collection, "reset", this.reset);
+
+	},
 	
 	render: function () {
 		this.$el.html(this.template(this.collection));
 		return this;
+	},
+	reset: function () {
+		alert('empyy');
 	}
 
 });
