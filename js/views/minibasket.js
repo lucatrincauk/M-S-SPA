@@ -1,4 +1,4 @@
-var MiniBasketView = Backbone.View.extend({
+App.Views.MiniBasketView = Backbone.View.extend({
 
 	template: Handlebars.compile(
 		'{{#each models}}<li>' +

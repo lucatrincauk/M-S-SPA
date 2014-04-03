@@ -1,4 +1,4 @@
-var BasketView = Backbone.View.extend({
+App.Views.BasketView = Backbone.View.extend({
 
 	template: Handlebars.compile(
 		'<h1>Basket</h1>' +

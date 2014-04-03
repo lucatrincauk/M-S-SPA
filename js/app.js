@@ -1,4 +1,5 @@
-var App = Backbone.Router.extend({
+$(function(){
+App.Router = Backbone.Router.extend({
 	routes: {
 		"": "productPlp",
 		"products/:id": "productPdp",
@@ -11,58 +12,59 @@ var App = Backbone.Router.extend({
 	}, 
 
 	initialize: function  () {
-		this.products = new Products();
-		this.products.fetch();
-		this.basketItems = new Products();
+		product = new App.Models.Product();
+		console.log('App initialize');
+		products = new App.Collections.Products();
+		products.fetch({
+			success: function (products) {
+				console.log('fetched products');
+				Backbone.history.loadUrl();
+			}
+		});
 
-		this.product = new Product();
-
-		this.productPdpView = new ProductPdpView({model: this.product});
-		
-		this.productPlpView = new ProductPlpView({collection: this.products});
-		this.basketView = new BasketView({collection: this.basketItems});		
-		this.checkoutView = new CheckoutView({collection: this.basketItems});
-		this.paymentView = new PaymentView({collection: this.basketItems});
-		this.miniBasketView = new MiniBasketView({collection: this.basketItems});
-		this.confirmationView = new ConfirmationView({collection: this.basketItems});
-		this.categoryView = new CategoryView({collection: this.products});
+		basketItems = new App.Collections.Products();
+		productPdpView = new App.Views.ProductPdpView({model: product});		
+		productPlpView = new App.Views.ProductPlpView({collection: products});
+		basketView = new App.Views.BasketView({collection: basketItems});		
+		checkoutView = new App.Views.CheckoutView({collection: basketItems});
+		paymentView = new App.Views.PaymentView({collection: basketItems});
+		miniBasketView = new App.Views.MiniBasketView({collection: basketItems});
+		confirmationView = new App.Views.ConfirmationView({collection: basketItems});
+		// categoryView = new App.Views.CategoryView({collection: products});
+		return this;
 	},
 
 	productPlp: function () {
-		$('#app').html(this.productPlpView.render().el);
-		//$('.dropdown-menu').html(this.miniBasketView.render().el);
+		$('#app').html(productPlpView.render().el);
+		//$('.dropdown-menu').html(miniBasketView.render().el);
 	},
 
 	/* categories: function (category) {
-		this.categoryView.options.category = category;
-		$('#app').html(this.categoryView.render().el);
+		categoryView.options.category = category;
+		$('#app').html(categoryView.render().el);
 	},*/
 
 	productPdp: function (id) {
-		this.productPdpView.model = this.products.get(id);
-		$('#app').html(this.productPdpView.render().el);
+		productPdpView = new App.Views.ProductPdpView({model: products.get(id)});
+		$('#app').html(productPdpView.render().el);
 	},
 	basket: function () {
-		if(!this.basketItems.length){
+		if(!basketItems.length){
 			$('#app').html('Basket empty');
 		} else {
-			$('#app').html(this.basketView.render().el);
+			$('#app').html(basketView.render().el);
 		}
 	},
 	checkout: function () {
-		$('#app').html(this.checkoutView.render().el);		
+		$('#app').html(checkoutView.render().el);		
 	},
 	payment: function () {
-		$('#app').html(this.paymentView.render().el);		
+		$('#app').html(paymentView.render().el);		
 	},
 	confirmation: function () {
-		$('#app').html(this.confirmationView.render().el);		
-	},
-
+		$('#app').html(confirmationView.render().el);		
+	}
 });
-
-var app = new App();
-
-$(function() {
-	Backbone.history.start();
+new App.Router;
+Backbone.history.start();
 });

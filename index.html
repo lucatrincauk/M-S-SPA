@@ -45,12 +45,48 @@
 
 	</div>
 
+
+    <script type="text/template" id="productPlpTemplate">     
+		<ul class="row">
+			{{#each models}}
+			<li class="col-xs-12 col-sm-6 col-md-4">
+				<a href="#/products/{{attributes.url}}">
+					<img src="photos/{{attributes.imagepath}}" width=100 class="img-polaroid" />
+				</a>
+				<span class="label label-info">{{attributes.category}}</span>
+				<a href="#/products/{{attributes.url}}">{{attributes.name}}</a>
+			</li>
+			{{/each}}
+		</ul>      
+    </script>
+    <script type="text/template" id="productPdpTemplate">     
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<img src="photos/{{imagepath}}" class="img-polaroid" />
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-8">
+				<div class="page-header">
+					<h1>{{name}} <small>{{category}}</small></h1>
+				</div>
+				<p>&pound;{{price}}</p>
+				<div class="swatchBox">
+					{{#each colour}}
+					<div class="swatchItem {{this}}" data-colour="{{this}}"></div> 
+					{{/each}}
+				</div>
+				<button type="button" class="btn btn-success">Add to basket</button>
+			</div>
+		</div>     
+    </script>
+
+
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js" type="text/javascript"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
 	<script type="text/javascript" src="js/lib/backbone.localStorage-min.js"></script>
 	<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/lib/handlebars.js"></script>
+	<script type="text/javascript" src="js/namespace.js"></script>
 	<script type="text/javascript" src="js/models/productsingle.js"></script>
 	<script type="text/javascript" src="js/collections/productlist.js"></script>
 	<script type="text/javascript" src="js/views/product-plp.js"></script>
@@ -61,6 +97,7 @@
 	<script type="text/javascript" src="js/views/payment.js"></script>
 	<script type="text/javascript" src="js/views/confirmation.js"></script>
 	<script type="text/javascript" src="js/views/product-pdp.js"></script>
+	<script type="text/javascript" src="js/views/product-plp-single.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

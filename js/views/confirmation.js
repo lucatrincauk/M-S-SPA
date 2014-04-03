@@ -1,4 +1,4 @@
-var ConfirmationView = Backbone.View.extend({
+App.Views.ConfirmationView = Backbone.View.extend({
 
 	template: Handlebars.compile(
 		'<h1>Confirmation</h1>' +

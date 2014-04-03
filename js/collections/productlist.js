@@ -1,4 +1,4 @@
-var Products = Backbone.Collection.extend({
-	model: Product,
+App.Collections.Products = Backbone.Collection.extend({
+	model: App.Models.Product,
 	url: 'data/products.json'
 });

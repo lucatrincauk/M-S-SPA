@@ -1,4 +1,4 @@
-var CheckoutView = Backbone.View.extend({
+App.Views.CheckoutView = Backbone.View.extend({
 
 	template: Handlebars.compile(
 		'<h1>Checkout</h1>' +

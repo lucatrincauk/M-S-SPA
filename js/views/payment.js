@@ -1,4 +1,4 @@
-var PaymentView = Backbone.View.extend({
+App.Views.PaymentView = Backbone.View.extend({
 
 	template: Handlebars.compile(
 		'<h1>Payment</h1>' +

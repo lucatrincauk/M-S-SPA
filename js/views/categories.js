@@ -1,4 +1,4 @@
-var CategoryView = Backbone.View.extend({
+App.Views.CategoryView = Backbone.View.extend({
 	template: Handlebars.compile(
 		'<h1>{{category}}</h1>' +
 		'<ul>' + 

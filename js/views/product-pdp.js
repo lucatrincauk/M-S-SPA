@@ -1,4 +1,4 @@
-var ProductPdpView = Backbone.View.extend({
+App.Views.ProductPdpView = Backbone.View.extend({
 	template: Handlebars.compile(
 		'<div class="row">' +
 		'<div class="col-xs-12 col-sm-6 col-md-4">' +
@@ -18,18 +18,12 @@ var ProductPdpView = Backbone.View.extend({
 	),
 
 	initialize: function  () {
-		this.listenTo(this.model, "change", this.render);
 		var that;
-		this.model.bind("change", this.render);
 	},
 	addToBasket: function (e) {
 		that = this.el;
-		app.basketItems.add(this.model, 1);
+		basketItems.add(this.model, 1);
 		alert('Added to basket');
-
-		console.log(this.el);
-		//$('body').find('.dropdown').addClass('open');
-
 	},
 	selectSwatch: function (e) {
 		that = e.target;
@@ -38,7 +32,6 @@ var ProductPdpView = Backbone.View.extend({
 		});
 		$('.swatchBox .swatchItem').removeClass('selected');
 		$(that).addClass('selected');
-		//console.log(this.model);
 	},
 	selectSize: function (e) {
 		that = e.target;
@@ -47,13 +40,11 @@ var ProductPdpView = Backbone.View.extend({
 		});
 		$('.sizeBox .sizeItem').removeClass('selected');
 		$(that).addClass('selected');
-		//console.log(this.model);
 	},
 	
 	render: function () {
-				//console.log(this);
-
-		this.$el.html(this.template(this.model.attributes));
+		console.log('Rendering PDP');
+		this.$el.html(this.template(this.model.toJSON()));
 		this.delegateEvents({
 			'click .btn-success': 'addToBasket',
 			'click .swatchItem': 'selectSwatch',
