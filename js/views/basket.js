@@ -26,7 +26,7 @@ App.Views.BasketView = Backbone.View.extend({
 		return this;
 	},
 	reset: function () {
-		alert('empyy');
+		console.log('Basket Empty');
 	}
 
 });
